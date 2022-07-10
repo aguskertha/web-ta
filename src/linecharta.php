@@ -1,6 +1,7 @@
 <?php
-$conn    = mysqli_connect("localhost","id18732653_root","7W147\OtNW\H~@pJ","id18732653_ta");
-require "linechartdatac.php";
+require "koneksi.php";
+// $conn    = mysqli_connect("localhost","id18732653_root","7W147\OtNW\H~@pJ","id18732653_ta");
+require "linechartdataa.php";
 ?>
 
 <!DOCTYPE html>
@@ -30,15 +31,17 @@ require "linechartdatac.php";
                         labels: ["Periode 1","Periode 2","Periode 3"],
                         datasets: [
                             {
-                                label: "Lahan 1 C",
+                                label: "Lahan 1 A",
                                 fill: false,
                                 lineTension: 0.1,
-                                backgroundColor: "#2E8B57",
-                                borderColor: "#2E8B57",
-                                pointHoverBackgroundColor: "#2E8B57",
-                                pointHoverBorderColor: "#2E8B57",
-                                data: [<?php while ($p = mysqli_fetch_array($lahan1c)) { echo '"' . $p['dosis'] . '",';}?>]
+                                backgroundColor: "#29B0D0",
+                                borderColor: "#29B0D0",
+                                pointHoverBackgroundColor: "#29B0D0",
+                                pointHoverBorderColor: "#29B0D0",
+                                data: [<?php while ($p = mysqli_fetch_array($lahan1a)) { echo '"' . $p['dosis'] . '",';}?>]
                             },
+                            
+                            
                             ]
                     };
 

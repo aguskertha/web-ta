@@ -1,7 +1,8 @@
 <?php
-$koneksi    = mysqli_connect("localhost", "root", "", "grafik");
-$penjualan  = mysqli_query($koneksi, "SELECT penjualan FROM sales order by ID asc");
-$merk       = mysqli_query($koneksi, "SELECT merk FROM sales order by ID asc");
+require "koneksi.php";
+// $koneksi    = mysqli_connect("localhost", "root", "", "grafik");
+$penjualan  = mysqli_query($conn, "SELECT penjualan FROM sales order by ID asc");
+$merk       = mysqli_query($conn, "SELECT merk FROM sales order by ID asc");
 ?>
 
 <!DOCTYPE html>

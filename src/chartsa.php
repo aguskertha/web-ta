@@ -1,7 +1,7 @@
 <?php
+    require "cek.php";
     require "fungsi.php";
     require "koneksi.php";
-    require "cek.php";
 ?>
 
 

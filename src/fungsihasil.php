@@ -19,7 +19,7 @@
         }
     }
 
-    require "koneksi.php";
+    // require "koneksi.php";
 
     if(isset($_POST['edithasilb'])){
         $lahan = $_POST['lahan'];
@@ -39,7 +39,7 @@
         }
     }
 
-    require "koneksi.php";
+    // require "koneksi.php";
 
     if(isset($_POST['edithasilc'])){
         $lahan = $_POST['lahan'];

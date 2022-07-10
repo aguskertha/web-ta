@@ -1,7 +1,7 @@
 <?php
+    require "cek.php";
     require "fungsi.php";
     require "koneksi.php";
-    require "cek.php";
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,6 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Data Log Plant</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -63,19 +62,19 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h2 class="mt-4">Data Petugas B</h2>
+                        <h2 class="mt-4">Data Petugas C</h2>
                         <ol class="breadcrumb mb-3">
                             <li class="breadcrumb-item active"></li>
-                        </ol>              
+                        </ol>         
                         <div class="dropdown my-md-2">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Pilih Data Petugas
-                            </button>                                   
+                            </button>                                
                             <div class="dropdown-menu dropdown-menu-right">                                       
                                  <a class="dropdown-item" href="index.php">Data A</a>
-                                 <a class="dropdown-item" href="indexc.php">Data C</a>
+                                 <a class="dropdown-item" href="indexb.php">Data B</a>
                             </div>
-                        </div>       
+                        </div>            
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
@@ -83,7 +82,7 @@
                                         <i class="fas fa-chart-area me-1"></i>
                                         Diagram Kebutuhan Dosis Pupuk Nitrogen (kg/ha)
                                     </div>
-                                    <div class="card-body"><iframe src="linechartb.php" width="100%" height="250"></iframe>
+                                    <div class="card-body"><iframe src="linechartc.php" width="100%" height="250"></iframe>
                                         <p class="card-text">Sumbu X : Waktu pemberian pupuk <br/> Sumbu Y : Jumlah pupuk nitrogen yang diberikan </p>
                                         <p class="card-text">Periode 1 : Pertama kali tanam 0-14 hari setelah tanam (HST)
                                             <br/>Periode 2 : Fase anakan aktif 21-28 HST
@@ -98,7 +97,7 @@
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Diagram Hasil Panen (t/ha)
                                     </div>
-                                    <div class="card-body"><iframe src="barchartb.php" width="100%" height="250"></iframe>
+                                    <div class="card-body"><iframe src="barchartc.php" width="100%" height="250"></iframe>
                                         <p class="card-text">Sumbu X : Nomer lahan<br/> Sumbu Y : Jumlah panen yang dihasilkan (t/ha)</p>
                                     </div>
                                 </div>
@@ -110,7 +109,7 @@
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Data Petugas B
+                                Tabel Data Petugas C
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -128,7 +127,7 @@
                                     </thead>                               
                                     <tbody>
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from b");
+                                            $ambildata = mysqli_query($conn, "select * from c");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
@@ -163,7 +162,7 @@
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Hasil Petugas B
+                                Tabel Hasil Petugas C
                             </div>
                             <div class="card-body">
                                 <table id="hasiltable">
@@ -177,7 +176,7 @@
                                     </thead>                               
                                     <tbody>
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from hasilb");
+                                            $ambildata = mysqli_query($conn, "select * from hasilc");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
@@ -220,6 +219,5 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
-    
-    
+
 </html>

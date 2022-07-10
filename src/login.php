@@ -1,5 +1,6 @@
 <?php
     //require "fungsi.php";
+    session_start();
     require "koneksi.php";
     
     //cek login
@@ -7,11 +8,10 @@
         $email = $_POST["email"];
         $password = $_POST["password"];
         //mencocokan data dengan database
-        $cekdatabase = mysqli_query($conn, "SELECT*FROM login where email='$email' and password='$password'");
-        //hitung jumlah data
-        $hitung = mysqli_num_rows($cekdatabase);
-
-        if($hitung>0){
+        $query = mysqli_query($conn, "select * from login where email='$email' and password = '$password' ");
+        
+        $hitung = mysqli_num_rows($query);
+        if($hitung > 0){
             $_SESSION["log"]="True";
             header("location:index.php");
         }
@@ -19,14 +19,9 @@
             header("location:login.php");
         }
     }
-
-    if(!isset($_SESSION["log"])){
-
-    }
-    else{
-        header("location:index.php");
-    }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,7 +1,7 @@
 <?php
-    require "fungsihasil.php";
-    require "koneksi.php";
     require "cek.php";
+    require "fungsi.php";
+    require "koneksi.php";
 ?>
 
 
@@ -68,7 +68,7 @@
                         <h2 class="mt-4">Data Tables</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Tabel Hasil</li>
+                            <li class="breadcrumb-item active">Tabel Data</li>
                         </ol>
                         
                         <div class="dropdown my-md-2">
@@ -76,41 +76,54 @@
                                 Pilih Tabel Petugas
                             </button>                                   
                             <div class="dropdown-menu dropdown-menu-right">                                       
-                                 <a class="dropdown-item" href="tabelhasila.php">Tabel A</a>
-                                 <a class="dropdown-item" href="tabelhasilb.php">Tabel B</a>
+                                 <a class="dropdown-item" href="tablesb.php">Tabel B</a>
+                                 <a class="dropdown-item" href="tablesc.php">Tabel C</a>
                             </div>
                         </div>
 
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Hasil Petugas C
+                                Tabel Data A
                             </div>
                             <div class="card-body">
-                                <table id="hasiltable">
+                                <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Lahan</th>                           
+                                            <th>Lahan</th> 
+                                            <th>No. Pengukuran</th>                                      
+                                            <th>Skala Warna</th>                                                                     
+                                            <th>Target (t/ha)</th>
+                                            <th>Dosis (kg/ha)</th>                               
                                             <th>Tanggal dan Waktu</th>
-                                            <th>Hasil Panen (t/ha)</th>
+                                            
                                         </tr>
                                     </thead>                               
                                     <tbody>
+
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from hasilc");
+                                            $ambildata = mysqli_query($conn, "select * from a");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
-                                                $hasil = $data['hasil'];
+                                                $pengukuran = $data['pengukuran'];                                             
+                                                $skala = $data['skala'];
+                                                $target = $data['target'];
+                                                $dosis = $data['dosis'];
+                                                $waktu = $data['datetime'];
+                                              
                                                 date_default_timezone_set('Asia/Jakarta');
                                                 $waktu = date("Y-m-d H:i:s");
                                         ?>
                                         <tr>
                                             <td><?=$no;?></td>
                                             <td><?=$lahan;?></td> 
+                                            <td><?=$pengukuran;?></td>                                           
+                                            <td><?=$skala;?></td>
+                                            <td><?=$target;?></td>
+                                            <td><?=$dosis;?></td>
                                             <td><?=$waktu;?></td>
-                                            <td><?=$hasil;?></td>
                                             <td><button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#edit<?=$no;?>">
                                                 Update
                                                 </button>
@@ -120,33 +133,46 @@
                                             <div class="modal fade" id="edit<?=$no;?>">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
-                                                        <!-- Modal Header -->
+                                                       
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">Update Data Hasil</h4>
+                                                            <h4 class="modal-title">Update Data</h4>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                         </div>
                                                         <form method="post">
-                                                        <!-- Modal body -->
+                                                       
                                                         <div class="modal-body">
                                                             <div class="mb-3">
                                                                 <label for="lahan" class="form-label">Lahan</label>
                                                                 <input type="num" class="form-control" value="<?=$lahan; ?>" name="lahan">
                                                             </div>                                                         
                                                             <div class="mb-3">
-                                                                <label for="hasil" class="form-label">Hasil Panen</label>
-                                                                <input type="num" class="form-control" value="<?=$hasil; ?>" name="hasil">
+                                                                <label for="skala" class="form-label">Nomer Pengukuran</label>
+                                                                <input type="num" class="form-control" value="<?=$pengukuran; ?>" name="pengukuran">
                                                             </div>
+                                                            <div class="mb-3">
+                                                                <label for="skala" class="form-label">Skala Warna</label>
+                                                                <input type="num" class="form-control" value="<?=$skala; ?>" name="skala">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="target" class="form-label">Target Panen</label>
+                                                                <input type="num" class="form-control" value="<?=$target; ?>" name="target">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="dosis" class="form-label">Dosis Pupuk</label>
+                                                                <input type="num" class="form-control" value="<?=$dosis; ?>" name="dosis">
+                                                            </div>
+                                                            
                                                             <input type="hidden" value="<?=$no; ?>" name="dp">
                                                         </div>
-                                                        <!-- Modal footer -->
+                                                        
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-success" name="edithasilb">Simpan Perubahan</button>
+                                                            <button type="submit" class="btn btn-success" name="editdataa">Simpan Perubahan</button>
                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            </form>
+                                            </form> 
 
                                         <?php
                                             };

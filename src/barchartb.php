@@ -1,5 +1,6 @@
 <?php
-$conn   = mysqli_connect("localhost","id18732653_root","7W147\OtNW\H~@pJ","id18732653_ta");
+require "koneksi.php";
+// $conn   = mysqli_connect("localhost","id18732653_root","7W147\OtNW\H~@pJ","id18732653_ta");
 $hasil  = mysqli_query($conn, "SELECT hasil FROM b order by ID asc");
 $lahan  = mysqli_query($conn, "SELECT lahan FROM b order by ID asc");
 ?>

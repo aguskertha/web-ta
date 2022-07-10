@@ -1,7 +1,7 @@
 <?php
+    require "cek.php";
     require "fungsi.php";
     require "koneksi.php";
-    require "cek.php";
 ?>
 
 
@@ -65,18 +65,19 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h2 class="mt-4">Diagram Data Petugas B</h2>
+                        <h2 class="mt-4">Diagram Data Petugas C</h2>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                             <li class="breadcrumb-item active">Charts</li>
                         </ol>
+                       
                         <div class="dropdown my-md-2">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Pilih Data Petugas
                             </button>                                   
                             <div class="dropdown-menu dropdown-menu-right">                                       
                                 <a class="dropdown-item" href="chartsa.php">Data A</a>
-                                <a class="dropdown-item" href="chartsc.php">Data C</a>
+                                <a class="dropdown-item" href="chartsb.php">Data B</a>
                             </div>
                         </div>
                         <div class="card mb-4">
@@ -84,7 +85,7 @@
                                 <i class="fas fa-chart-area me-1"></i>
                                 Diagram Kebutuhan Dosis Pupuk Nitrogen
                             </div>
-                            <div class="card-body"><iframe src="linechartb.php" width="100%" height="250"></iframe></div>
+                            <div class="card-body"><iframe src="linechartc.php" width="100%" height="250"></iframe></div>
                             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                         </div>
                         <div class="row">
@@ -94,7 +95,7 @@
                                         <i class="fas fa-chart-bar me-1"></i>
                                         Diagram Hasil Panen Lahan
                                     </div>
-                                    <div class="card-body"><iframe src="barchartb.php" width="100%" height="250"></iframe></div>
+                                    <div class="card-body"><iframe src="barchartc.php" width="100%" height="250"></iframe></div>
                                     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                                 </div>
                             </div>

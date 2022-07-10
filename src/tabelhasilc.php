@@ -1,7 +1,7 @@
 <?php
-    require "fungsihasil.php";
-    
     require "cek.php";
+    require "fungsihasil.php";
+    // require "koneksi.php";
 ?>
 
 
@@ -76,15 +76,15 @@
                                 Pilih Tabel Petugas
                             </button>                                   
                             <div class="dropdown-menu dropdown-menu-right">                                       
+                                 <a class="dropdown-item" href="tabelhasila.php">Tabel A</a>
                                  <a class="dropdown-item" href="tabelhasilb.php">Tabel B</a>
-                                 <a class="dropdown-item" href="tabelhasilc.php">Tabel C</a>
                             </div>
                         </div>
 
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Hasil Petugas A
+                                Tabel Hasil Petugas C
                             </div>
                             <div class="card-body">
                                 <table id="hasiltable">
@@ -98,7 +98,7 @@
                                     </thead>                               
                                     <tbody>
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from hasila");
+                                            $ambildata = mysqli_query($conn, "select * from hasilc");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
@@ -140,7 +140,7 @@
                                                         </div>
                                                         <!-- Modal footer -->
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-success" name="edithasila">Simpan Perubahan</button>
+                                                            <button type="submit" class="btn btn-success" name="edithasilb">Simpan Perubahan</button>
                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>

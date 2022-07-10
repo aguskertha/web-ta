@@ -1,8 +1,7 @@
 <?php
+    require "cek.php";
     require "fungsi.php";
     require "koneksi.php";
-    require "cek.php";
-    
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +17,6 @@
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
-        <script src="js/Chart.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -65,57 +63,54 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h2 class="mt-4">Data Petugas A</h2>
-                            <ol class="breadcrumb mb-3">
-                                <li class="breadcrumb-item active"></li>
-                            </ol>
-                            <div class="dropdown my-md-2">
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pilih Data Petugas
-                                </button>                                   
-                                <div class="dropdown-menu dropdown-menu-right">                                       
-                                    <a class="dropdown-item" href="indexb.php">Data B</a>
-                                    <a class="dropdown-item" href="indexc.php">Data C</a>
-                                </div>
+                        <h2 class="mt-4">Data Petugas B</h2>
+                        <ol class="breadcrumb mb-3">
+                            <li class="breadcrumb-item active"></li>
+                        </ol>              
+                        <div class="dropdown my-md-2">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Pilih Data Petugas
+                            </button>                                   
+                            <div class="dropdown-menu dropdown-menu-right">                                       
+                                 <a class="dropdown-item" href="index.php">Data A</a>
+                                 <a class="dropdown-item" href="indexc.php">Data C</a>
                             </div>
-
+                        </div>       
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="card mb-4">                                   
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
                                     <div class="card-header bg-dark text-white">
                                         <i class="fas fa-chart-area me-1"></i>
                                         Diagram Kebutuhan Dosis Pupuk Nitrogen (kg/ha)
                                     </div>
-                                    <div class="card-body"><iframe src="linecharta.php" width="100%" height="250"></iframe>
+                                    <div class="card-body"><iframe src="linechartb.php" width="100%" height="250"></iframe>
                                         <p class="card-text">Sumbu X : Waktu pemberian pupuk <br/> Sumbu Y : Jumlah pupuk nitrogen yang diberikan </p>
                                         <p class="card-text">Periode 1 : Pertama kali tanam 0-14 hari setelah tanam (HST)
                                             <br/>Periode 2 : Fase anakan aktif 21-28 HST
                                             <br/>Periode 3 : Fase primordia bunga 50-63 HST
                                         </p>
-
                                     </div>
-                                </div>    
+                                </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header bg-dark text-white">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        Diagram Hasil Panen Lahan (t/ha)
+                                        Diagram Hasil Panen (t/ha)
                                     </div>
-                                    <div class="card-body"><iframe src="barcharta.php" width="100%" height="250"></iframe>
+                                    <div class="card-body"><iframe src="barchartb.php" width="100%" height="250"></iframe>
                                         <p class="card-text">Sumbu X : Nomer lahan<br/> Sumbu Y : Jumlah panen yang dihasilkan (t/ha)</p>
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
+
                         
-                       
 
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Data Petugas A
+                                Tabel Data Petugas B
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -133,7 +128,7 @@
                                     </thead>                               
                                     <tbody>
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from a");
+                                            $ambildata = mysqli_query($conn, "select * from b");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
@@ -168,7 +163,7 @@
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Hasil Petugas A
+                                Tabel Hasil Petugas B
                             </div>
                             <div class="card-body">
                                 <table id="hasiltable">
@@ -182,7 +177,7 @@
                                     </thead>                               
                                     <tbody>
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from hasila");
+                                            $ambildata = mysqli_query($conn, "select * from hasilb");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
@@ -223,17 +218,8 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-       
-        
-    
-        
-
-        
-    
-
-
     </body>
 
     
-
+    
 </html>

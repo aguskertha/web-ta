@@ -1,7 +1,7 @@
 <?php
+    require "cek.php";
     require "fungsi.php";
     require "koneksi.php";
-    require "cek.php";
 ?>
 
 
@@ -46,7 +46,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="charts.php">
+                            <a class="nav-link" href="chartsa.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
@@ -77,14 +77,14 @@
                             </button>                                   
                             <div class="dropdown-menu dropdown-menu-right">                                       
                                  <a class="dropdown-item" href="tables.php">Tabel A</a>
-                                 <a class="dropdown-item" href="tablesb.php">Tabel B</a>
+                                 <a class="dropdown-item" href="tablesc.php">Tabel C</a>
                             </div>
                         </div>
 
                         <div class="card mb-4">
                             <div class="card-header bg-dark text-white">
                                 <i class="fas fa-table me-1"></i>
-                                Tabel Data C
+                                Tabel Data B
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -102,7 +102,7 @@
                                     <tbody>
 
                                         <?php
-                                            $ambildata = mysqli_query($conn, "select * from c");
+                                            $ambildata = mysqli_query($conn, "select * from b");
                                             while($data=mysqli_fetch_array($ambildata)){
                                                 $no = $data['id'];
                                                 $lahan = $data['lahan'];
@@ -163,7 +163,7 @@
                                                         </div>
                                                         <!-- Modal footer -->
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-success" name="editdatac">Simpan Perubahan</button>
+                                                            <button type="submit" class="btn btn-success" name="editdatab">Simpan Perubahan</button>
                                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                                         </div>
                                                     </div>
