@@ -1,31 +1,34 @@
-version: '3.1'
+version: '3.9'
 
 services:
-  php:
+  app:
+    container_name: app
     build:
       context: .
       dockerfile: Dockerfile
-    depends_on:
-      - db
     ports:
-      - 80:80
+      - 9000:80
     volumes:
       - ./src:/var/www/html/
 
   db:
-    image: mysql
+    container_name: db
+    image: mysql:latest
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
-    volumes:
-      - ./mysql-data:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: root
 
-  adminer:
-    image: adminer
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:latest
     restart: always
     ports:
-      - 8080:8080
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
+      
+
 
 volumes:
   mysql-data:
